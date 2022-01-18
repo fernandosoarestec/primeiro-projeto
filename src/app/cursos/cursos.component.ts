@@ -4,18 +4,25 @@ import { CursosService } from './cursos.service';
 @Component({
   selector: 'app-cursos',
   templateUrl: './cursos.component.html',
-  styleUrls: ['./cursos.component.css']
+  styleUrls: ['./cursos.component.css'],
+  template: `<h2>What Can JavaScript Do?</h2>
+
+  <p id="demo">JavaScript can hide HTML elements.</p>
+
+  <button type="button" onclick="document.getElementById('demo').style.display='none'">Click Me!</button>`
 })
 export class CursosComponent implements OnInit {
 
 
   nomePortal: string;
 
+
+
   cursos: string[];
 
   constructor(private CursosService: CursosService) {
 
-    this.nomePortal = 'http://praisetecnologia.com.br';
+    this.nomePortal = 'Primeiro Portal';
 
     /*iremos obter esta informacao do service como boa prática do Angular
 
@@ -25,6 +32,8 @@ export class CursosComponent implements OnInit {
     }*/
 
     //var servico = new CursosService();
+
+
 
     this.cursos = this.CursosService.getCursos();
 
